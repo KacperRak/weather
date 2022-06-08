@@ -14,9 +14,17 @@ async function getWeatherCurrent() {
 async function main() {
     const weatherJson = await getWeatherCurrent()
     const current = weatherJson.current
+    const temp = current.temp_c
+    const wind = current.wind_kph
+    const clouds = current.cloud
     const humidity = current.humidity
-    console.log(humidity)
+
+    console.log(humidity,temp,wind,clouds)
     console.log(weatherJson)
+
+    document.getElementById('temperature').innerHTML+temp
+
+
 }
 
 // const a = {
