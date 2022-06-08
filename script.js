@@ -23,8 +23,7 @@ async function main() {
     console.log(weatherJson)
 
     document.getElementById('temperature').innerHTML+temp
-
-
+    
 }
 
 // const a = {
