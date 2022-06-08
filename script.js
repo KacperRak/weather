@@ -22,7 +22,7 @@ async function main() {
     console.log(humidity,temp,wind,clouds)
     console.log(weatherJson)
 
-    document.getElementById('temperature').innerHTML="temperatura"+temp
+    document.getElementById('temperature').innerHTML="temperatura"+temp+"°C"
     
 }
 
