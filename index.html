@@ -6,13 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" href="css/fontello.css" type="text/css"/>
 </head>
 <body>
-    
-    <p id="temperature">temp: </p>
-    <p id="wind">wiatr: </p>
-    <p id="clouds">zachmurzenie: </p>
-    <p id="humidity">wilgotność: </p>
+    <!--
+    <div class="window">
+        <div class="main">
+            <div class="container-left">
+                <div class="left">
+                    <p id="temperature">temp: </p>
+                    <i id="icon"></i>
+                </div>
+                <div class="right">
+                    <p class="info" id="wind">wiatr: </p>
+                    <p class="info" id="clouds">zachmurzenie: </p>
+                    <p class="info" id="humidity">wilgotność: </p>
+                </div>
+            </div>
+            <div class="container-right">
+                <p id="miasto"></p>
+            </div>
+        </div>
+    </div>
+
+<input id="city" type="text">
+<button onclick="changeCity()">OK</button>
+
+-->
+
+<div class="weather-app">
+    <div class="container">
+        <h3 class="brand">Pogoda</h3>
+        <div>
+            <hi id="temp"></hi>
+            <div id="city-time">
+                <h1 id="city">Wasrszawa</h1>
+                <small>
+                    <span id="time">06:09</span>
+                    <span id="date">Poniedziałek Cze 19</span>
+                </small>
+            </div>
+            <div class="weather">
+                <i id="icon"></i>
+                <span class="condition"></span>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <form id="locationInput">
+            <input 
+            type="text"
+            class="search"
+            placeholder="Szukaj lokalozacji..."
+            />
+            <button type="submit" class="submit">
+                <i class="icon-search"></i>
+            </button>
+        </form>
+
+        <ul class="cities">
+            <li>Warszawa</li>
+            <li>Krakow</li>
+            <li>Wrocław</li>
+            <li>Poznań</li>
+        </ul>
+
+        <ul class="details">
+            <h4>Informacje poboczne</h4>
+            <li>
+                <span>Zachmurzenie</span>
+                <span id="clouds"></span>
+            </li>
+            <li>
+                <span>Wilgotność</span>
+                <span id="humidity"></span>
+            </li>
+            <li>
+                <span>Wiatr</span>
+                <span id="wind"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
 
     <script src="script.js"></script>
 </body>

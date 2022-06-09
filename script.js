@@ -1,7 +1,7 @@
 const API_KEY = 'd69cfc7d3bf54713aa2154949220806'
 const API_BASE = 'https://api.weatherapi.com/v1/'
 const aqi = 'no' // Air quality index
-const locationCity = 'Staszow'
+let locationCity = 'Staszow'
 
 async function getWeatherCurrent() {
     const apiURL = `${API_BASE}current.json?key=${API_KEY}&q=${locationCity}&aqi=${aqi}`
@@ -9,7 +9,6 @@ async function getWeatherCurrent() {
     const apiResponceJson = await response.json()
     return apiResponceJson
 }
-
 
 async function main() {
     const weatherJson = await getWeatherCurrent()
@@ -19,15 +18,49 @@ async function main() {
     const clouds = current.cloud
     const humidity = current.humidity
 
-    console.log(humidity,temp,wind,clouds)
+    const locationCountry = weatherJson.location
+    const country = locationCountry.country
+
+    console.log(humidity,temp,wind,"zachmurzenie: ",clouds,country)
     console.log(weatherJson)
 
-    document.getElementById('temperature').innerHTML="temperatura "+temp+"°C"
-    document.getElementById('wind').innerHTML="wiatr "+wind+"km/h"
-    document.getElementById('clouds').innerHTML="zachmurzenie "+clouds+"%"
-    document.getElementById('humidity').innerHTML="wilgotność "+temp+"%"
-    
+    document.getElementById('temp').innerHTML=temp+"°C"
+    document.getElementById('wind').innerHTML=wind+"km/h"
+    document.getElementById('clouds').innerHTML=clouds+"%"
+    document.getElementById('humidity').innerHTML=humidity+"%"
+
+    //document.getElementById('miasto').innerHTML=locationCity
+
+
+    let icon = 1
+
+    if (clouds>85){
+        icon = 4
+        document.getElementById('icon').innerHTML="<img src="+icon+".png>"
+    }
+    if (clouds<85 && clouds>50){
+        icon = 3
+        document.getElementById('icon').innerHTML="<img src="+icon+".png>"
+    }
+    if (clouds<50 && clouds>30){
+        icon = 2
+        document.getElementById('icon').innerHTML="<img src="+icon+".png>"
+    }
+    if(clouds<30){
+        icon = 1
+        document.getElementById('icon').innerHTML="<img src="+icon+".png>"
+    }
+
 }
+
+function changeCity(){
+    locationCity = document.getElementById('city').value
+    document.getElementById('miasto').innerHTML=locationCity
+    console.log(locationCity)
+}
+
+
+main()
 
 // const a = {
 //     "location": { "name": "Staszow", "region": "", "country": "Poland", "lat": 50.55, "lon": 21.17, "tz_id": "Europe/Warsaw", "localtime_epoch": 1654705098, "localtime": "2022-06-08 18:18" },
@@ -59,4 +92,3 @@ async function main() {
 //         "gust_kph": 11.2
 //     }
 // }
-main()
