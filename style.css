@@ -94,7 +94,7 @@ h1, h3 {
     overflow-y: scroll;
 }
 
-.panel form {
+.panel .locationInput {
     margin-bottom: 3em;
 }
 
@@ -102,7 +102,7 @@ h1, h3 {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 1em;
+    padding: 0.5em;
     margin: 0;
     border: none;
     background: transparent;
