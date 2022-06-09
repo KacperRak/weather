@@ -54,8 +54,8 @@ async function main() {
 }
 
 function changeCity(){
-    locationCity = document.getElementById('city').value
-    document.getElementById('miasto').innerHTML=locationCity
+    locationCity = document.getElementById('search').value
+    document.getElementById('city').innerHTML=locationCity
     console.log(locationCity)
 }
 
