@@ -1,17 +1,17 @@
 const API_KEY = 'd69cfc7d3bf54713aa2154949220806'
 const API_BASE = 'https://api.weatherapi.com/v1/'
 const aqi = 'no' // Air quality index
-let locationCity = 'Staszow'
+let locationCityGlobal = 'Staszow'
 
-async function getWeatherCurrent() {
+async function getWeatherCurrent(locationCity) {
     const apiURL = `${API_BASE}current.json?key=${API_KEY}&q=${locationCity}&aqi=${aqi}`
     const response = await fetch(apiURL)
     const apiResponceJson = await response.json()
     return apiResponceJson
 }
 
-async function main() {
-    const weatherJson = await getWeatherCurrent()
+async function main(locationCity) {
+    const weatherJson = await getWeatherCurrent(locationCity)
     const current = weatherJson.current
     const temp = current.temp_c
     const wind = current.wind_kph
@@ -20,6 +20,9 @@ async function main() {
 
     const locationCountry = weatherJson.location
     const country = locationCountry.country
+    const localTime = locationCountry.localtime
+
+    document.getElementById('date').innerHTML=localTime
 
     console.log(humidity,temp,wind,"zachmurzenie: ",clouds,country)
     console.log(weatherJson)
@@ -54,24 +57,31 @@ async function main() {
 }
 
 function changeCity(){
-    locationCity = document.getElementById('search').value
+    let locationCity = document.getElementById('search').value
 
     if (locationCity==''){
         locationCity='Warszawa'
     }
 
     document.getElementById('city').innerHTML=locationCity
-    
+    locationCityGlobal = locationCity
+    main(locationCityGlobal)
     console.log(locationCity)
 }
 
-function cityClick(object){
-    locationCity = object.innerText
+function cityClick(locationCity){
     document.getElementById('city').innerHTML=locationCity
+    locationCityGlobal = locationCity
+    main(locationCityGlobal)
 }
 
+main(locationCityGlobal)
 
-main()
+
+function intervalFunction(){
+    main(locationCityGlobal)
+}
+setInterval(intervalFunction,60*1000)
 
 // const a = {
 //     "location": { "name": "Staszow", "region": "", "country": "Poland", "lat": 50.55, "lon": 21.17, "tz_id": "Europe/Warsaw", "localtime_epoch": 1654705098, "localtime": "2022-06-08 18:18" },

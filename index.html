@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pogoda</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="stylesheet" href="css/fontello.css" type="text/css"/>
 </head>
@@ -43,8 +43,7 @@
             <div id="city-time">
                 <h1 id="city">Staszów</h1>
                 <small>
-                    <span id="time">06:09</span>
-                    <span id="date">Poniedziałek Cze 19</span>
+                    <span id="date"></span>
                 </small>
             </div>
             <div class="weather">
@@ -68,10 +67,10 @@
         </div>
 
         <ul class="cities">
-            <li onclick="cityClick(this)">Warszawa</li>
-            <li onclick="cityClick(this)">Krakow</li>
-            <li onclick="cityClick(this)">Wroclaw</li>
-            <li onclick="cityClick(this)">Poznan</li>
+            <li onclick="cityClick('Warszawa')">Warszawa</li>
+            <li onclick="cityClick('Krakow')">Kraków</li>
+            <li onclick="cityClick('Wroclaw')">Wrocław</li>
+            <li onclick="cityClick('Poznan')">Poznań</li>
         </ul>
 
         <ul class="details">
