@@ -41,7 +41,7 @@
         <div>
             <hi id="temp"></hi>
             <div id="city-time">
-                <h1 id="city">Warszawa</h1>
+                <h1 id="city">Staszów</h1>
                 <small>
                     <span id="time">06:09</span>
                     <span id="date">Poniedziałek Cze 19</span>
@@ -59,6 +59,7 @@
             <input 
             type="text"
             id="search"
+            autocomplete="off"
             placeholder="Szukaj lokalizacji..."
             />
             <button class="submit" onclick="changeCity()">
@@ -67,10 +68,10 @@
         </div>
 
         <ul class="cities">
-            <li>Warszawa</li>
-            <li>Krakow</li>
-            <li>Wrocław</li>
-            <li>Poznań</li>
+            <li onclick="cityClick(this)">Warszawa</li>
+            <li onclick="cityClick(this)">Krakow</li>
+            <li onclick="cityClick(this)">Wroclaw</li>
+            <li onclick="cityClick(this)">Poznan</li>
         </ul>
 
         <ul class="details">

@@ -55,8 +55,19 @@ async function main() {
 
 function changeCity(){
     locationCity = document.getElementById('search').value
+
+    if (locationCity==''){
+        locationCity='Warszawa'
+    }
+
     document.getElementById('city').innerHTML=locationCity
+    
     console.log(locationCity)
+}
+
+function cityClick(object){
+    locationCity = object.innerText
+    document.getElementById('city').innerHTML=locationCity
 }
 
 
