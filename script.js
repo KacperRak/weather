@@ -24,7 +24,7 @@ async function main() {
     console.log(humidity,temp,wind,"zachmurzenie: ",clouds,country)
     console.log(weatherJson)
 
-    document.getElementById('temp').innerHTML=temp+"°C"
+    document.getElementById('temp').innerHTML=temp+"°"
     document.getElementById('wind').innerHTML=wind+"km/h"
     document.getElementById('clouds').innerHTML=clouds+"%"
     document.getElementById('humidity').innerHTML=humidity+"%"
